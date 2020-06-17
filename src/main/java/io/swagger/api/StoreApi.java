@@ -33,7 +33,7 @@ public interface StoreApi {
         @ApiResponse(code = 400, message = "Invalid ID supplied"),
         @ApiResponse(code = 404, message = "Order not found") })
     @RequestMapping(value = "/store/order/{orderId}",
-        produces = { "application/xml", "application/json" },
+            produces = { "application/json" },
         method = RequestMethod.DELETE)
     ResponseEntity<Void> deleteOrder(@Min(1L) @ApiParam(value = "ID of the order that needs to be deleted", required = true) @PathVariable("orderId") Long orderId);
 
@@ -55,7 +55,7 @@ public interface StoreApi {
         @ApiResponse(code = 400, message = "Invalid ID supplied"),
         @ApiResponse(code = 404, message = "Order not found") })
     @RequestMapping(value = "/store/order/{orderId}",
-        produces = { "application/xml", "application/json" },
+            produces = { "application/json" },
         method = RequestMethod.GET)
     ResponseEntity<Order> getOrderById(@Min(1L) @Max(10L) @ApiParam(value = "ID of pet that needs to be fetched", required = true) @PathVariable("orderId") Long orderId);
 
@@ -65,7 +65,7 @@ public interface StoreApi {
         @ApiResponse(code = 200, message = "successful operation", response = Order.class),
         @ApiResponse(code = 400, message = "Invalid Order") })
     @RequestMapping(value = "/store/order",
-        produces = { "application/xml", "application/json" },
+            produces = { "application/json" },
         method = RequestMethod.POST)
     ResponseEntity<Order> placeOrder(@ApiParam(value = "order placed for purchasing the pet", required = true) @Valid @RequestBody Order body);
 

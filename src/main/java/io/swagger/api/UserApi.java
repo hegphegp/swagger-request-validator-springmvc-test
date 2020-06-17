@@ -32,7 +32,7 @@ public interface UserApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "successful operation") })
     @RequestMapping(value = "/user",
-        produces = { "application/xml", "application/json" },
+            produces = { "application/json" },
         method = RequestMethod.POST)
     ResponseEntity<Void> createUser(@ApiParam(value = "Created user object", required = true) @Valid @RequestBody User body);
 
@@ -41,7 +41,7 @@ public interface UserApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "successful operation") })
     @RequestMapping(value = "/user/createWithArray",
-        produces = { "application/xml", "application/json" },
+            produces = { "application/json" },
         method = RequestMethod.POST)
     ResponseEntity<Void> createUsersWithArrayInput(@ApiParam(value = "List of user object", required = true) @Valid @RequestBody List<User> body);
 
@@ -50,7 +50,7 @@ public interface UserApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "successful operation") })
     @RequestMapping(value = "/user/createWithList",
-        produces = { "application/xml", "application/json" },
+            produces = { "application/json" },
         method = RequestMethod.POST)
     ResponseEntity<Void> createUsersWithListInput(@ApiParam(value = "List of user object", required = true) @Valid @RequestBody List<User> body);
 
@@ -60,7 +60,7 @@ public interface UserApi {
         @ApiResponse(code = 400, message = "Invalid username supplied"),
         @ApiResponse(code = 404, message = "User not found") })
     @RequestMapping(value = "/user/{username}",
-        produces = { "application/xml", "application/json" },
+            produces = { "application/json" },
         method = RequestMethod.DELETE)
     ResponseEntity<Void> deleteUser(@ApiParam(value = "The name that needs to be deleted", required = true) @PathVariable("username") String username);
 
@@ -71,7 +71,7 @@ public interface UserApi {
         @ApiResponse(code = 400, message = "Invalid username supplied"),
         @ApiResponse(code = 404, message = "User not found") })
     @RequestMapping(value = "/user/{username}",
-        produces = { "application/xml", "application/json" },
+            produces = { "application/json" },
         method = RequestMethod.GET)
     ResponseEntity<User> getUserByName(@ApiParam(value = "The name that needs to be fetched. Use user1 for testing. ", required = true) @PathVariable("username") String username);
 
@@ -81,7 +81,7 @@ public interface UserApi {
         @ApiResponse(code = 200, message = "successful operation", response = String.class),
         @ApiResponse(code = 400, message = "Invalid username/password supplied") })
     @RequestMapping(value = "/user/login",
-        produces = { "application/xml", "application/json" },
+            produces = { "application/json" },
         method = RequestMethod.GET)
     ResponseEntity<String> loginUser(@NotNull @ApiParam(value = "The user name for login", required = true) @Valid @RequestParam(value = "username", required = true) String username, @NotNull @ApiParam(value = "The password for login in clear text", required = true) @Valid @RequestParam(value = "password", required = true) String password);
 
@@ -90,7 +90,7 @@ public interface UserApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "successful operation") })
     @RequestMapping(value = "/user/logout",
-        produces = { "application/xml", "application/json" },
+            produces = { "application/json" },
         method = RequestMethod.GET)
     ResponseEntity<Void> logoutUser();
 
@@ -100,7 +100,7 @@ public interface UserApi {
         @ApiResponse(code = 400, message = "Invalid user supplied"),
         @ApiResponse(code = 404, message = "User not found") })
     @RequestMapping(value = "/user/{username}",
-        produces = { "application/xml", "application/json" },
+            produces = { "application/json" },
         method = RequestMethod.PUT)
     ResponseEntity<Void> updateUser(@ApiParam(value = "name that need to be updated", required = true) @PathVariable("username") String username, @ApiParam(value = "Updated user object", required = true) @Valid @RequestBody User body);
 

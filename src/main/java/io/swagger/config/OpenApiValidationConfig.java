@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import javax.servlet.Filter;
 import java.io.IOException;
 
-//@Configuration
+@Configuration
 public class OpenApiValidationConfig extends WebMvcConfigurerAdapter {
 
     private final OpenApiValidationInterceptor validationInterceptor;
